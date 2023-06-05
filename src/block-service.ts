@@ -87,6 +87,13 @@ class BlockService implements BlockStore, BlockResolver {
   }
 
   public start(port: number, callback: () => void): http.Server {
+    // Enable CORS for all origins
+    this.app.use((req, res, next) => {
+      res.setHeader("Access-Control-Allow-Origin", "*");
+      res.setHeader("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
+      res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+      next();
+    });
     this.app.use(express.json());
     this.app.put("/", (req: Request, res: Response) =>
       this.handlePutRequest(req, res)

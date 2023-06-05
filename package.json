@@ -1,6 +1,6 @@
 {
   "name": "@dstanesc/block-service",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Simple in-memory block service",
   "repository": "https://github.com/dstanesc/block-service.git",
   "type": "module",
